@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reto Ritmo 🎵 — Aprende el Valor de las Notas</title>
+    <meta name="description" content="Aprende el valor de las figuras musicales con tus manos y la cámara. ¡Un juego de ritmo interactivo!" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/reto-ritmo/assets/index-DpfzwAE9.js"></script>
+    <link rel="stylesheet" crossorigin href="/reto-ritmo/assets/index-UN-BSg8E.css">
+  </head>
+  <body>
+    <div id="app">
+      <!-- Container for camera and canvas -->
+      <div id="game-container">
+        <video id="webcam" autoplay playsinline></video>
+        <canvas id="game-canvas"></canvas>
+      </div>
+      
+      <!-- UI Overlay -->
+      <div id="ui-layer">
+        <header>
+          <h1>🎵 Reto Ritmo</h1>
+          <div class="hud">
+            <div class="hud-item" id="bpm-display">♩ = 80 BPM</div>
+            <div class="hud-item">
+              Puntos: <span id="score">0</span>
+            </div>
+            <div class="hud-item combo" id="combo"></div>
+          </div>
+        </header>
+
+        <!-- Start screen -->
+        <div id="start-screen" class="screen">
+          <div class="screen-content">
+            <h2>🎶 ¡Aprende el Ritmo!</h2>
+            <p>Empuja las notas hacia los lados con la palma de tu mano al ritmo de la música.</p>
+            
+            <div class="bpm-selector">
+              <label for="bpm-input">Velocidad (BPM):</label>
+              <input type="range" id="bpm-input" min="40" max="140" value="80" step="10" />
+              <span id="bpm-value">80</span>
+            </div>
+
+            <div class="button-group">
+              <button id="btn-start">🎮 Iniciar Juego</button>
+              <button id="btn-info" class="btn-secondary">❓ Cómo jugar</button>
+            </div>
+            
+            <p id="loading-text" style="display: none;">Cargando modelo de IA...</p>
+          </div>
+        </div>
+
+        <!-- Instructions Modal -->
+        <div id="modal-instructions" class="modal" style="display: none;">
+          <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>📖 Instrucciones de Juego</h2>
+            <div class="instructions-body">
+              <div class="instruction-step">
+                <span class="step-icon">✋</span>
+                <div>
+                  <h3>Usa tu palma</h3>
+                  <p>Mantén la mano abierta y relajada. El sistema sigue el centro de tu palma para mayor estabilidad.</p>
+                </div>
+              </div>
+              <div class="instruction-step">
+                <span class="step-icon">↔️</span>
+                <div>
+                  <h3>Empuje Lateral</h3>
+                  <p>Cuando la nota toque la línea, haz un movimiento rápido (swipe) hacia los lados para "aventarla".</p>
+                </div>
+              </div>
+              <div class="instruction-step">
+                <span class="step-icon">🎼</span>
+                <div>
+                  <h3>Sigue el Valor</h3>
+                  <p>La cantidad de golpes depende de la figura:</p>
+                  <ul>
+                    <li><strong>Redonda (𝅝)</strong>: 1 golpe cada 4 tiempos.</li>
+                    <li><strong>Blanca (𝅗𝅥)</strong>: 2 golpes (uno cada 2 tiempos).</li>
+                    <li><strong>Negra (♩)</strong>: 4 golpes (uno por tiempo).</li>
+                    <li><strong>Corchea (♪)</strong>: 8 golpes (rápido).</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <button id="btn-close-modal">¡Entendido!</button>
+          </div>
+        </div>
+
+        <!-- Game Over screen -->
+        <div id="game-over-screen" class="screen" style="display: none;">
+          <div class="screen-content">
+            <h2>🎉 ¡Juego Terminado!</h2>
+            <div class="final-stats">
+              <div class="stat">
+                <span class="stat-value" id="final-score">0</span>
+                <span class="stat-label">Puntos</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value" id="final-combo">0</span>
+                <span class="stat-label">Max Combo</span>
+              </div>
+            </div>
+            <button id="btn-restart">🔁 Volver a Jugar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
