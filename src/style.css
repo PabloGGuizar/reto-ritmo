@@ -207,6 +207,7 @@ h1 {
   margin: 24px 0;
   font-weight: 700;
   font-size: 1.1rem;
+  pointer-events: auto;
 }
 
 .bpm-selector input[type="range"] {
@@ -240,6 +241,7 @@ button {
   transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4);
   margin-top: 10px;
+  pointer-events: auto;
 }
 
 button:hover {
@@ -330,6 +332,7 @@ button:active {
   align-items: center;
   z-index: 100;
   backdrop-filter: blur(8px);
+  pointer-events: auto; /* Habilitar clics en el modal */
 }
 
 .modal-content {
