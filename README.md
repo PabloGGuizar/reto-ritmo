@@ -1,39 +1,40 @@
-# 🎵 Reto Ritmo — Percusión con IA
+# Reto-Ritmo 🎶
 
-**Reto Ritmo** es una aplicación educativa interactiva diseñada para enseñar el valor de las figuras musicales a través del movimiento y la percusión virtual. Utiliza inteligencia artificial para rastrear el movimiento de tus manos sin necesidad de controladores externos.
+Un juego educativo de ritmo que utiliza **Inteligencia Artificial** y seguimiento de manos en tiempo real para enseñar el valor de las notas musicales de una manera física y divertida.
 
-## 🚀 Características
+## 🚀 La Nueva Experiencia: Empuje Lateral (Swipe)
 
-- **Seguimiento de Puños (IA)**: Utiliza la cámara para detectar si tienes la mano cerrada y captura el gesto de "martilleo".
-- **Gesto de Percusión**: El juego requiere que cierres el puño para activar los pads. ¡Si tienes la mano abierta, no habrá impacto!
-- **Pads de Percusión Gigantes**: Área de impacto amplia en la base para una detección robusta y satisfactoria.
-- **Feedback Auditivo**: Incluye un sonido de "tap" percusivo sincronizado con tus movimientos para ayudarte a mantener el pulso.
-- **Currículo Educativo**: Progresión de niveles que enseña Redondas, Blancas, Negras y Corcheas.
-- **Minimalismo Premium**: Interfaz limpia con efectos de brillo y glassmorphism.
+A diferencia de los juegos de ritmo tradicionales, **Reto-Ritmo** utiliza una mecánica de "barrido" o empuje lateral (Swipe). Las notas caen verticalmente y, cuando llegan a la línea de objetivo, el jugador debe "aventarlas" hacia los lados.
 
-## 🛠️ Tecnologías
-
-- **Vite**: Entorno de desarrollo rápido.
-- **Mediapipe Tasks (Vision)**: Para el seguimiento de manos en tiempo real mediante IA.
-- **Web Audio API**: Para la síntesis de sonidos percusivos y el metrónomo de alta precisión.
-- **Canvas 2D API**: Para la renderización fluida del juego a 60 FPS.
+### Características Principales:
+- **Seguimiento de Palma Estable**: Olvídate de los fallos por ruido de cámara. El motor calcula el centro de masa de tu palma, ignorando el parpadeo de los dedos para una precisión profesional.
+- **Física Dinámica**: Las notas salen volando en la dirección en la que las empujas. Si haces un barrido hacia adentro (aplauso), la nota vuela al centro; si barres hacia afuera, vuela a los bordes.
+- **Control Omnidireccional**: Detecta impulsos rápidos en cualquier dirección horizontal.
+- **Feedback Visual Zen**: Interfaz limpia y minimalista con una línea reactiva que brilla al detectar tus movimientos.
 
 ## 📖 Cómo Jugar
 
-1. **Inicia el juego** y permite el acceso a la cámara.
-2. **Cierra el puño**: El sistema solo registrará impactos si detecta que tu mano está cerrada.
-3. **Golpea los Pads**: Cuando una nota baje y toque la zona de los rectángulos en la base, haz un gesto rápido de "martilleo" hacia abajo.
-4. **Sigue el patrón**:
-   - **Redonda (4 tiempos)**: 1 golpe al inicio del compás.
-   - **Blanca (2 tiempos)**: 2 golpes (uno cada 2 clics del metrónomo).
-   - **Negra (1 tiempo)**: 4 golpes (uno por cada clic del metrónomo).
-   - **Corchea (1/2 tiempo)**: 8 golpes rápidos.
+1.  **Calibra tu cámara**: Asegúrate de que tus manos sean visibles en el encuadre.
+2.  **Usa la Palma**: Mantén la mano abierta y relajada. El sistema seguirá el centro de tu palma.
+3.  **El Gesto (Swipe)**: Cuando una nota toque la línea horizontal, haz un movimiento rápido hacia la izquierda o derecha para "aventarla".
+4.  **Sigue el Ritmo**:
+    - **Redonda (𝅝)**: 1 golpe cada 4 tiempos.
+    - **Blanca (𝅗𝅥)**: 2 golpes (uno cada 2 tiempos).
+    - **Negra (♩)**: 4 golpes (uno por tiempo).
+    - **Corchea (♪)**: 8 golpes rápidos.
 
-## 📦 Instalación
+## 🛠️ Tecnología
+- **Vite**: Entorno de desarrollo ultra rápido.
+- **MediaPipe Hands**: Seguimiento de manos mediante IA de alto rendimiento.
+- **Web Audio API**: Motor de sonido de baja latencia para una respuesta rítmica perfecta.
+- **Canvas API**: Renderizado fluido a 60fps.
 
-Si deseas ejecutarlo localmente:
+## 💻 Instalación Local
 
 ```bash
+# Clonar el repositorio
+git clone https://github.com/PabloGGuizar/reto-ritmo.git
+
 # Instalar dependencias
 npm install
 
@@ -41,9 +42,4 @@ npm install
 npm run dev
 ```
 
-## 🧠 Lógica Técnica
-
-El corazón del proyecto reside en `gameEngine.js`, donde se calcula la velocidad vertical (`dy`) del centro del puño (Landmark 9). El sistema incluye un filtro `_isFist` que verifica la flexión de los dedos antes de permitir la activación del pad, lo que garantiza una jugabilidad intencional y física.
-
----
-Creado por Antigravity para el aprendizaje musical interactivo.
+Desarrollado con ❤️ para la educación musical.

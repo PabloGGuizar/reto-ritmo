@@ -47,15 +47,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Modal Logic
-  const openModal = () => { modal.style.display = 'flex'; };
-  const closeModal = () => { modal.style.display = 'none'; };
+  const openModal = () => { 
+    if (modal) modal.style.display = 'flex'; 
+  };
+  const closeModal = () => { 
+    if (modal) modal.style.display = 'none'; 
+  };
 
-  btnInfo.addEventListener('click', openModal);
-  btnCloseModal.addEventListener('click', closeModal);
-  spanClose.addEventListener('click', closeModal);
+  if (btnInfo) btnInfo.addEventListener('click', openModal);
+  if (btnCloseModal) btnCloseModal.addEventListener('click', closeModal);
+  if (spanClose) spanClose.addEventListener('click', closeModal);
 
   // Close modal when clicking outside of it
   window.addEventListener('click', (event) => {
-    if (event.target === modal) closeModal();
+    if (event.target === modal) {
+      closeModal();
+    }
   });
 });
